@@ -25,9 +25,13 @@ pub fn modpow(mut base: u64, mut exp: u64, n: u64) -> u64 {
 fn main() {
 	for i in 1..10000{
 		for p in 1..i{
-			if modpow(10,p,i)==1{
-				println!("1/{i} has {p} repeating digits");
-				break;
+			match modpow(10,p,i){
+				0=>break,// no repeating decimal
+				1=>{
+					println!("1/{i} has {p} repeating digits");
+					break;
+				},
+				_=>{}
 			}
 		}
 	}
