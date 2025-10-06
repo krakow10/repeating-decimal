@@ -25,6 +25,7 @@ pub fn modpow(mut base: u64, mut exp: u64, n: u64) -> u64 {
 fn main() {
 	for i in 1..10000{
 		for p in 1..i{
+			// issue: does not find prefixed repeating decimals like 1/96
 			match modpow(10,p,i){
 				0=>break,// no repeating decimal
 				1=>{
